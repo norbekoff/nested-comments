@@ -1,5 +1,4 @@
 <template>
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
   <div>another one there mateF</div>
 </template>
 
