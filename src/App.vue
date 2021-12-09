@@ -1,17 +1,14 @@
 <template>
   <div>another one there mateF</div>
+  <Comment />
 </template>
 
 <script lang="ts">
-
-
-
 import { Options, Vue } from "vue-class-component";
-import HelloWorld from "./components/HelloWorld.vue";
-
+import Comment from "./components/Comment.vue";
 @Options({
   components: {
-    HelloWorld,
+    Comment,
   },
 })
 export default class App extends Vue {}
