@@ -1,15 +1,11 @@
 <template>
-    <div>
-
-    </div>
+  <div class="comment">
+    <div class="comment__header"></div>
+  </div>
 </template>
 
 <script>
-    export default {
-        
-    }
+export default {};
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
