@@ -4,7 +4,7 @@
       <div v-if="hasArce" class="komment__arc"></div>
       <div class="komment__header flex items-center justify-between mb-[12px]">
         <div class="flex items-start gap-[10px]">
-          <a :to="localePath(link)" class="komment__title">
+          <a  class="komment__title">
             <a
               :src="coverUrl"
               width="32"
@@ -14,7 +14,6 @@
           </a>
           <div>
             <a
-              :to="localePath(link)"
               class="komment__title flex items-center gap-[4px]"
             >
               <span>
@@ -73,52 +72,13 @@
           <p class="mr-[12px] komment__answer" @click="handleShowReply">
             Javob berish
           </p>
-          <v-menu
-            offset-y
-            :nudge-bottom="8"
-            content-class="posta__dots-menu"
-            min-width="160"
-          >
-            <template #activator="{ on, attrs }">
-              <div class="komment__dots" v-bind="attrs" v-on="on">
-                <svg
-                  width="16"
-                  height="17"
-                  viewBox="0 0 16 17"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M11.7334 8.50003C11.7334 7.61629 12.4497 6.90002 13.3334 6.90002C14.2171 6.90002 14.9334 7.61629 14.9334 8.50003C14.9334 9.38376 14.2171 10.1 13.3334 10.1C12.4497 10.1 11.7334 9.38376 11.7334 8.50003Z"
-                    fill="#8A939A"
-                  />
-                  <path
-                    d="M6.40039 8.50003C6.40039 7.61629 7.11666 6.90002 8.00039 6.90002C8.88412 6.90002 9.60039 7.61629 9.60039 8.50003C9.60039 9.38376 8.88412 10.1 8.00039 10.1C7.11666 10.1 6.40039 9.38376 6.40039 8.50003Z"
-                    fill="#8A939A"
-                  />
-                  <path
-                    d="M2.66641 6.90002C1.78267 6.90002 1.06641 7.61629 1.06641 8.50003C1.06641 9.38376 1.78267 10.1 2.66641 10.1C3.55014 10.1 4.26641 9.38376 4.26641 8.50003C4.26641 7.61629 3.55014 6.90002 2.66641 6.90002Z"
-                    fill="#8A939A"
-                  />
-                </svg>
-              </div>
-            </template>
-            <v-list class="!py-[4px]">
-              <v-list-item @click="report">
-                <v-list-item-title>{{ $t('report') }}</v-list-item-title>
-              </v-list-item>
-            </v-list>
-          </v-menu>
+         hello 
         </div>
         <div>
           <Vote :hoverable="true" class="!hidden e:!flex" />
         </div>
       </div>
-
-      <ReplyComment
-        v-if="showTextarea && id === replyCommetID"
-        @cancel="showTextarea = false"
-      />
+     hello
     </div>
     <div
       v-if="reply.length"
@@ -126,19 +86,7 @@
       :class="{ 'has-border': reply.length > 1 }"
     >
       <template>
-        <Comment
-          v-bind="{
-            coverUrl: item.picture,
-            content: item.comment,
-            author: item.fullname,
-            when: item.when,
-            reply: item.reply,
-            id: item.id,
-            hasArce: true,
-            isVerified: item.is_verified,
-            link: item.slug,
-          }"
-        />
+        <Comment />
       </template>
     </div>
   </div>
@@ -146,15 +94,11 @@
 
 <script>
 import { mapState } from 'vuex';
-import Vote from '../actions/Vote.vue';
-import ReplyComment from '../form/ReplyComment.vue';
 import Comment from './Comment.vue';
 export default {
   name: 'Comment',
   components: {
     Comment,
-    ReplyComment,
-    Vote,
   },
   props: {
     coverUrl: {
@@ -198,11 +142,6 @@ export default {
     return {
       showTextarea: false,
     };
-  },
-  computed: {
-    ...mapState({
-      replyCommetID: (state) => state.replyComment,
-    }),
   },
   methods: {
     handleShowReply() {
