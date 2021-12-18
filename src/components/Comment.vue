@@ -11,11 +11,16 @@
         {{ comment }}
       </p>
     </div>
+    <Vote/>
   </div>
 </template>
 
 <script>
+import Vote from './Vote.vue'
 export default {
+    components: {
+        Vote,
+    },
   props: {
     avatar: {
       type: String,
@@ -46,12 +51,9 @@ export default {
     overflow: hidden;
   }
   // .comment__content
-
   &__content {
   }
-
   // .comment__title
-
   &__title {
     font-size: 12px;
     font-weight: 500;
