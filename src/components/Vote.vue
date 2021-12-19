@@ -1,9 +1,13 @@
 <template>
   <div class="vote">
-    <div class="vote__down-vote" @click.prevent="downvote">
+    <div
+      class="vote__down-vote"
+      @click.prevent="downvote"
+      :class="[{ voted: num < count }]"
+    >
       <svg
-        width="24"
-        height="24"
+        width="30"
+        height="30"
         viewBox="0 0 24 24"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -17,15 +21,27 @@
         />
       </svg>
     </div>
-    <div class="vote__count">
+    <div
+      class="vote__count"
+      :class="[
+        { down: num < count },
+        { up: num > count },
+        { positive: num > 0 },
+        { negative: num < 0 },
+      ]"
+    >
       <span class="vote__count-n">{{ count + 1 }}</span>
       <span class="vote__count-n">{{ count }}</span>
       <span class="vote__count-n"> {{ count - 1 }}</span>
     </div>
-    <div class="vote__up-vote" @click.prevent="upvote">
+    <div
+      class="vote__up-vote"
+      @click.prevent="upvote"
+      :class="[{ voted: num > count }]"
+    >
       <svg
-        width="24"
-        height="24"
+        width="30"
+        height="30"
         viewBox="0 0 24 24"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -89,20 +105,92 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .vote {
   display: flex;
+  align-items: center;
   // .vote__down-vote
-  &__down-vote {
+  svg {
+    path {
+      stroke: #595959;
+    }
   }
   // .vote__count
   &__count {
+    min-width: 24px;
+    height: 24px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    color: #595959;
+    display: flex;
+    align-items: center;
+    user-select: none;
+    justify-content: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    max-height: 20px;
+    overflow: hidden;
+    .vote__count-n {
+      transition: all 0.4s ease;
+    }
+
+    &.up {
+      .vote__count-n {
+        transform: translateY(100%);
+      }
+    }
+
+    &.down {
+      .vote__count-n {
+        transform: translateY(-100%);
+      }
+    }
+    &.negative {
+      color: #d34f57;
+    }
+    &.positive {
+      color: #2ea83a;
+    }
   }
-  // .vote__count-n
-  &__count-n {
+  // .vote__down-vote
+  &__down-vote {
+    &.voted {
+      background: rgba(211, 79, 87, 0.1);
+      svg {
+        path {
+          stroke: #d34f57;
+        }
+      }
+      &:hover {
+        background: rgba(211, 79, 87, 0.2);
+      }
+    }
+    &:hover {
+      background: rgba(0, 0, 0, 0.05);
+    }
   }
   // .vote__up-vote
   &__up-vote {
+    &.voted {
+      background: rgba(79, 167, 87, 0.1);
+      svg {
+        path {
+          stroke: #2ea83a;
+        }
+      }
+      &:hover {
+        background-color: rgba(79, 167, 87, 0.2);
+      }
+    }
+    &:hover {
+      &:hover {
+        background: rgba(0, 0, 0, 0.05);
+      }
+    }
   }
 }
 </style>

@@ -11,16 +11,16 @@
         {{ comment }}
       </p>
     </div>
-    <Vote/>
+    <Vote />
   </div>
 </template>
 
 <script>
-import Vote from './Vote.vue'
+import Vote from "./Vote.vue";
 export default {
-    components: {
-        Vote,
-    },
+  components: {
+    Vote,
+  },
   props: {
     avatar: {
       type: String,
@@ -34,7 +34,7 @@ export default {
       type: String,
       default: "What is all this then?",
     },
-    reply: []
+    reply: [],
   },
 };
 </script>
@@ -43,6 +43,7 @@ export default {
 .comment {
   display: flex;
   gap: 8px;
+  align-items: center;
   // .comment__avatar
   &__avatar {
     width: 36px;
