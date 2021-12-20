@@ -117,7 +117,7 @@ export default {
   }
   // .vote__count
   &__count {
-    min-width: 24px;
+    min-width: 30px;
     height: 24px;
     font-style: normal;
     font-weight: bold;
@@ -158,6 +158,7 @@ export default {
   }
   // .vote__down-vote
   &__down-vote {
+    border-radius: 50%;
     &.voted {
       background: rgba(211, 79, 87, 0.1);
       svg {
@@ -175,6 +176,7 @@ export default {
   }
   // .vote__up-vote
   &__up-vote {
+    border-radius: 50%;
     &.voted {
       background: rgba(79, 167, 87, 0.1);
       svg {
