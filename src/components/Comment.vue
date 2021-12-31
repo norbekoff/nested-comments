@@ -51,9 +51,6 @@ export default {
     border-radius: 50%;
     overflow: hidden;
   }
-  // .comment__content
-  &__content {
-  }
   // .comment__title
   &__title {
     font-size: 12px;
