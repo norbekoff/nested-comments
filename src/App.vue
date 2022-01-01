@@ -1,7 +1,14 @@
 <template>
   <div class="my-[100px] max-w-[600px] mx-auto">
-    <div v-for="item in 4" :key="item">
-      <Comment :item="item" />
+    <div v-for="(item, index) in comments" :key="index">
+      <Comment
+        v-bind="{
+          avatar: item.image,
+          author: item.author,
+          comment: item.comment,
+          replies: item.replies,
+        }"
+      />
     </div>
   </div>
 </template>
@@ -25,7 +32,7 @@ export default {
           votes: 10,
           is_like: true,
           is_dislike: false,
-          reply: [],
+          replies: [],
         },
         {
           author: "Nick Jonson",
@@ -36,7 +43,7 @@ export default {
           votes: -10,
           is_like: false,
           is_dislike: false,
-          reply: [
+          replies: [
             {
               author: "Alex Jonson",
               id: 3,
@@ -46,7 +53,42 @@ export default {
               votes: 2,
               is_like: false,
               is_dislike: false,
-              reply: [],
+              replies: [],
+            },
+
+            {
+              author: "Alex Jonson",
+              id: 3,
+              comment: "Why not?",
+              image: "https://placeimg.com/100/100/people",
+              date: "2019-01-01",
+              votes: 2,
+              is_like: false,
+              is_dislike: false,
+              replies: [
+                {
+                  author: "Alex Jonson",
+                  id: 3,
+                  comment: "Why not?",
+                  image: "https://placeimg.com/100/100/people",
+                  date: "2019-01-01",
+                  votes: 2,
+                  is_like: false,
+                  is_dislike: false,
+                  replies: [],
+                },
+              ],
+            },
+            {
+              author: "Alex Jonson",
+              id: 3,
+              comment: "Why not?",
+              image: "https://placeimg.com/100/100/people",
+              date: "2019-01-01",
+              votes: 2,
+              is_like: false,
+              is_dislike: false,
+              replies: [],
             },
           ],
         },

@@ -1,17 +1,31 @@
 <template>
-  <div class="comment">
-    <div class="comment__avatar">
-      <img :src="avatar" alt="" />
+  <div>
+    <div class="comment">
+      <div class="comment__avatar">
+        <img :src="avatar" alt="" />
+      </div>
+      <div class="comment__content">
+        <h3 class="comment__title">
+          {{ author }}
+        </h3>
+        <p class="comment__body">
+          {{ comment }}
+        </p>
+      </div>
+      <Vote />
     </div>
-    <div class="comment__content">
-      <h3 class="comment__title">
-        {{ author }}
-      </h3>
-      <p class="comment__body">
-        {{ comment }}
-      </p>
+    <div v-if="replies.length" class="ml-[20px]">
+      <template v-for="(item, index) in replies" :key="index">
+        <Comment
+          v-bind="{
+            avatar: item.image,
+            author: item.author,
+            comment: item.comment,
+            replies: item.replies,
+          }"
+        />
+      </template>
     </div>
-    <Vote />
   </div>
 </template>
 
@@ -34,7 +48,10 @@ export default {
       type: String,
       default: "What is all this then?",
     },
-    reply: [],
+    replies: {
+      type: Array,
+      default: () => [],
+    },
   },
 };
 </script>
