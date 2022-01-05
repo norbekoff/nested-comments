@@ -1,16 +1,18 @@
 <template>
   <div>
     <div class="comment">
-      <div class="comment__avatar">
-        <img :src="avatar" alt="" />
-      </div>
-      <div class="comment__content">
-        <h3 class="comment__title">
-          {{ author }}
-        </h3>
-        <p class="comment__body">
-          {{ comment }}
-        </p>
+      <div class="comment__wrapper">
+        <div class="comment__avatar">
+          <img :src="avatar" alt="" />
+        </div>
+        <div class="comment__content">
+          <h3 class="comment__title">
+            {{ author }}
+          </h3>
+          <p class="comment__body">
+            {{ comment }}
+          </p>
+        </div>
       </div>
       <Vote />
     </div>
@@ -59,8 +61,7 @@ export default {
 <style lang="scss">
 .comment {
   display: flex;
-  gap: 8px;
-  align-items: center;
+  justify-content: space-between;
   // .comment__avatar
   &__avatar {
     width: 36px;
@@ -76,11 +77,17 @@ export default {
   }
 
   // .comment__body
-
   &__body {
     font-size: 14px;
     font-weight: 400;
     line-height: 21px;
+  }
+  // .comment__wrapper
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: space-between;
   }
 }
 </style>
