@@ -37,7 +37,7 @@ export default {
         {
           author: "Nick Jonson",
           id: 2,
-          comment: "I don't like this product",
+          comment: "I don't like this product  Some large text  Some large text  Some large text  Some large text  Some large text  Some large text  Some large text  Some large text  Some large text  Some large text  Some large text  Some large text  Some large text  Some large text ",
           image: "https://picsum.photos/50",
           date: "2019-01-01",
           votes: -10,
@@ -47,7 +47,7 @@ export default {
             {
               author: "Alex Jonson",
               id: 3,
-              comment: "Why not?",
+              comment: "Why not? Some large text  Some large text  Some large text  Some large text  Some large text  Some large text  Some large text  Some large text  Some large text  Some large text  Some large text  Some large text ",
               image: "https://picsum.photos/50",
               date: "2019-01-01",
               votes: 2,

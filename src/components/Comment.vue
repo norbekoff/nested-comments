@@ -1,22 +1,26 @@
 <template>
   <div>
     <div class="comment">
-      <div class="comment__wrapper">
-        <div class="comment__avatar">
-          <img :src="avatar" alt="" />
+      <div class="comment__header mb-[10px]">
+        <div class="comment__author">
+          <div class="comment__avatar">
+            <img :src="avatar" alt="" />
+          </div>
+          <div class="comment__content">
+            <h3 class="comment__title">
+              {{ author }}
+            </h3>
+          </div>
         </div>
-        <div class="comment__content">
-          <h3 class="comment__title">
-            {{ author }}
-          </h3>
-          <p class="comment__body">
-            {{ comment }}
-          </p>
-        </div>
+        <Vote />
       </div>
-      <Vote />
+      <div>
+        <p class="comment__body">
+          {{ comment }}
+        </p>
+      </div>
     </div>
-    <div v-if="replies.length" class="ml-[20px]">
+    <div v-if="replies.length" class="pl-[20px] comment__inner-commment">
       <template v-for="(item, index) in replies" :key="index">
         <Comment
           v-bind="{
@@ -60,15 +64,21 @@ export default {
 
 <style lang="scss">
 .comment {
-  display: flex;
-  justify-content: space-between;
   padding-top: 20px;
+  // .comment__author
+  &__author {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
   // .comment__avatar
   &__avatar {
     width: 36px;
     height: 36px;
     border-radius: 50%;
     overflow: hidden;
+    min-width: 36px;
+    align-self: flex-start;
   }
   // .comment__title
   &__title {
@@ -84,11 +94,13 @@ export default {
     line-height: 21px;
   }
   // .comment__wrapper
-  &__wrapper {
+  &__header {
     display: flex;
     align-items: center;
-    gap: 8px;
     justify-content: space-between;
+  }
+  &__inner-commment {
+    border-left: 1px solid #e6e6e6;
   }
 }
 </style>
