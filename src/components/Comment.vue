@@ -62,6 +62,7 @@ export default {
 .comment {
   display: flex;
   justify-content: space-between;
+  padding-top: 20px;
   // .comment__avatar
   &__avatar {
     width: 36px;
