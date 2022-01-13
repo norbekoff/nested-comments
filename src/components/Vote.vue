@@ -195,4 +195,7 @@ export default {
     }
   }
 }
+// :last-child {
+//   box-shadow: calc(20px * -1 - 1px) 0 0 0 #fff;
+// }
 </style>

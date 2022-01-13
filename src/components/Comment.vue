@@ -65,7 +65,18 @@ export default {
 <style lang="scss">
 .comment {
   padding-top: 20px;
+  // box-shadow: calc(20px * -1 - 1px) 0 0 0 #fff;
   // .comment__author
+  position: relative;
+  &::before {
+    content: "";
+    height: 30px;
+    width: 10px;
+    position: absolute;
+    border-left: 1px solid #e6e6e6;
+    border-bottom: 1px solid #e6e6e6;
+    border-bottom-left-radius: 8px;
+  }
   &__author {
     display: flex;
     align-items: flex-start;
