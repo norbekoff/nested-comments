@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="comment">
+    <div class="comment" :class="[{ shaddow: lastOne }, { corner: hasCorner }]">
       <div class="comment__header mb-[10px]">
         <div class="comment__author">
           <div class="comment__avatar">
@@ -12,7 +12,14 @@
             </h3>
           </div>
         </div>
-        <Vote />
+        <Vote
+          v-bind="{
+            count: votes,
+            id: id,
+            isLiked: is_liked,
+            isDisliked: is_disliked,
+          }"
+        />
       </div>
       <div>
         <p class="comment__body">
@@ -28,6 +35,8 @@
             author: item.author,
             comment: item.comment,
             replies: item.replies,
+            lastOne: index === replies.length - 1,
+            hasCorner: replies.length >= 1,
           }"
         />
       </template>
@@ -42,6 +51,14 @@ export default {
     Vote,
   },
   props: {
+    hasCorner: {
+      type: Boolean,
+      default: false,
+    },
+    lastOne: {
+      type: Boolean,
+      default: false,
+    },
     avatar: {
       type: String,
       default: "https://picsum.photos/200",
@@ -54,6 +71,22 @@ export default {
       type: String,
       default: "What is all this then?",
     },
+    votes: {
+      type: Number,
+      default: 0,
+    },
+    id: {
+      type: Number,
+      default: 0,
+    },
+    is_liked: {
+      type: Boolean,
+      default: false,
+    },
+    is_disliked: {
+      type: Boolean,
+      default: false,
+    },
     replies: {
       type: Array,
       default: () => [],
@@ -65,13 +98,17 @@ export default {
 <style lang="scss">
 .comment {
   padding-top: 20px;
-  // box-shadow: calc(20px * -1 - 1px) 0 0 0 #fff;
   // .comment__author
   position: relative;
-  &::before {
+  &.shaddow {
+    box-shadow: calc(20px * -1 - 1px) 0 0 0 #fff;
+  }
+  &.corner::before {
+    left: -21px;
     content: "";
+    top: 0;
     height: 30px;
-    width: 10px;
+    width: 15px;
     position: absolute;
     border-left: 1px solid #e6e6e6;
     border-bottom: 1px solid #e6e6e6;
