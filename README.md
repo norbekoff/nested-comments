@@ -3,11 +3,8 @@
 <img src='https://i.ibb.co/YZWNPFv/test.png'/>
 
 ### Features
-🧵 Threaded comments (nesting!!)
-🗳 Voting
-🥇 Sorting
-📑 Pagination
-🌒 Dark mode
+* Threaded comments (nesting!!)
+* 🗳 Voting
 
 
 ### Getting Started
