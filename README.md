@@ -1,6 +1,6 @@
 # ⚡ Vite + Vue 3 + Tailwind CSS - Nested comments
 
-![Vite, Vue, Tailwind CSS](https://ibb.co/Dpb1zH3)
+<img src='https://ibb.co/Dpb1zH3'/>
 
 This starter template includes:
 
