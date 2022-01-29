@@ -9,7 +9,7 @@
 
 ### Getting Started
 
-[![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/web2033/vite-vue3-tailwind-starter)
+[![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/norbekoff/nested-comments)
 
 ```sh
 npx degit web2033/vite-vue3-tailwind-starter vvt-app
