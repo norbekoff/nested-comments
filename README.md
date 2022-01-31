@@ -5,6 +5,7 @@
 ### Features
 * Threaded comments (nesting!!)
 * 🗳 Voting
+
 [Demo](https://nested-comments-vc-ru.netlify.app/).
 
 ### Getting Started
