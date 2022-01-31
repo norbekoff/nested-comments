@@ -12,7 +12,7 @@
 [![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/norbekoff/nested-comments)
 
 ```sh
-npx degit web2033/vite-vue3-tailwind-starter vvt-app
+npx degit norbekoff/nested-comments vvt-app
 cd vvt-app
 ```
 
@@ -23,4 +23,4 @@ npm run build
 npm run serve
 ```
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/web2033/vite-vue3-tailwind-starter)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/norbekoff/nested-comments)
