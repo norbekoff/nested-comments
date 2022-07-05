@@ -26,7 +26,6 @@ export default {
   },
   data() {
     return {
-      key: Symbol("key"),
       comments: [
         {
           author: "brandon Jonson",
